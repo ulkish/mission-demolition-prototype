@@ -12,7 +12,8 @@ public enum GameMode
 
 public class MissionDemolition : MonoBehaviour
 {
-    static private MissionDemolition S; // A private Singleton.
+    // A private Singleton.
+    static private MissionDemolition S;
 
     [Header("Set in Inspector")]
     // The UIText_Level Text
