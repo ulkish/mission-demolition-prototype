@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Slingshot : MonoBehaviour
 {
+    static private Slingshot S;
     // Fields set in the Unity Inspector pane.
     [Header("Set in Inspector")]
     public GameObject prefabProjectile;
@@ -19,8 +20,18 @@ public class Slingshot : MonoBehaviour
 
     private Rigidbody projectileRigidbody;
 
+    static public Vector3 LAUNCH_POS
+    {
+        get
+        {
+            if (S == null) return Vector3.zero;
+            return S.launchPos;
+        }
+    }
+
     void Awake()
     {
+        S = this;
         Transform launchPointTrans = transform.Find("LaunchPoint");
         launchPoint = launchPointTrans.gameObject;
         launchPoint.SetActive(false);
